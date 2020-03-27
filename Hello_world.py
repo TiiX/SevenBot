@@ -1,5 +1,7 @@
 import discord
 import asyncio
+ws_url = 'ws://Guesser-Cluster.scoder12.repl.co'
+guess_url = 'https://guess-it.scoder12.repl.co/guess'
 
 client = discord.Client()
 
@@ -9,6 +11,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    print(message.content)
+    if message.content == "!hello":
+        await message.channel.send("Hey Humain.")
 
-client.run("NjkzMTE4NTI0NjU4NDE3NzU1.Xn4bsg.743IZIpQ_bLW5GQTh8lo07HBces")
+client.run("NjkzMTE4NTI0NjU4NDE3NzU1.Xn4jng._2ywmiNcH9DHiwDGAptLzfD72h0")
