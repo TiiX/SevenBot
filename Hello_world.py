@@ -1,5 +1,7 @@
 import discord
 import asyncio
+import CobraMusic
+
 ws_url = 'ws://Guesser-Cluster.scoder12.repl.co'
 guess_url = 'https://guess-it.scoder12.repl.co/guess'
 
@@ -34,5 +36,9 @@ async def on_message(message):
                 print("WARNING : Ban Word Detected.")
                 await message.delete()
                 await message.author.send("Ban Word Detected. => "+word+" <=\nThe Previous Message :\n"+message.content)
+    if message.content.startswith("!play"):
+        music_client = await CobraMusic.get_client(message, client)
+        await music_client.play(message.content.split()[1])
+
 
 client.run("NjkzMTE4NTI0NjU4NDE3NzU1.Xn4jng._2ywmiNcH9DHiwDGAptLzfD72h0")
