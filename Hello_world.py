@@ -3,7 +3,7 @@ import asyncio
 ws_url = 'ws://Guesser-Cluster.scoder12.repl.co'
 guess_url = 'https://guess-it.scoder12.repl.co/guess'
 
-BAN_WORDS = ["AI","Cheese"]
+BAN_WORDS = ["ai","cheese"]
 
 client = discord.Client()
 
@@ -28,10 +28,11 @@ async def on_message(message):
                            timestamp=message.created_at)
         em.add_field(name="Un Field", value="Ton value", inline=True)
         await message.channel.send(embed=em)
-    for word in BAN_WORDS:
-        if word in message.content:
-            print("WARNING : Ban Word Detected.")
-            await message.delete()
-            await message.channel.send("Ban Word Detected.")
+    if message.author != client.user:
+        for word in BAN_WORDS:
+            if word in message.content.lower():
+                print("WARNING : Ban Word Detected.")
+                await message.delete()
+                await message.author.send("Ban Word Detected. => "+word+" <=\nThe Previous Message :\n"+message.content)
 
 client.run("NjkzMTE4NTI0NjU4NDE3NzU1.Xn4jng._2ywmiNcH9DHiwDGAptLzfD72h0")
