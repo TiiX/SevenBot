@@ -1,12 +1,12 @@
 import discord
 import asyncio
 import CobraMusic
-
 import token as tk
-import ban_words as b_w
 
 ws_url = 'ws://Guesser-Cluster.scoder12.repl.co'
 guess_url = 'https://guess-it.scoder12.repl.co/guess'
+
+BAN_WORDS = ["ai","cheese"]
 
 client = discord.Client()
 
@@ -32,7 +32,7 @@ async def on_message(message):
         em.add_field(name="Un Field", value="Ton value", inline=True)
         await message.channel.send(embed=em)
     if message.author != client.user:
-        for word in b_w.BAN_WORDS:
+        for word in BAN_WORDS:
             if word in message.content.lower():
                 print("WARNING : Ban Word Detected.")
                 await message.delete()
