@@ -5,7 +5,7 @@ import CobraMusic
 import discord_token as tk
 import ban_words as b_w
 
-token = tk.token_id
+token = tk.token_i
 
 ##ws_url = 'ws://Guesser-Cluster.scoder12.repl.co'
 ##guess_url = 'https://guess-it.scoder12.repl.co/guess'
