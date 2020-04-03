@@ -42,4 +42,4 @@ async def on_message(message):
         await music_client.play(message.content.split()[1])
 
 
-client.run(tk.token)
+client.run("NjkzMTE4NTI0NjU4NDE3NzU1.XoYn3A.YTYtKZIG1lztS17xBKanGfiTw-U")

@@ -2,11 +2,13 @@ import discord
 import asyncio
 import CobraMusic
 
-import token as tk
+import discord_token as tk
 import ban_words as b_w
 
-ws_url = 'ws://Guesser-Cluster.scoder12.repl.co'
-guess_url = 'https://guess-it.scoder12.repl.co/guess'
+token = tk.token_id
+
+##ws_url = 'ws://Guesser-Cluster.scoder12.repl.co'
+##guess_url = 'https://guess-it.scoder12.repl.co/guess'
 
 client = discord.Client()
 
@@ -42,4 +44,4 @@ async def on_message(message):
         await music_client.play(message.content.split()[1])
 
 
-client.run(tk.token)
+client.run(token)
