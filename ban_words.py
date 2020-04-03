@@ -1,1 +1,1 @@
-BAN_WORDS = ["ai","cheese","fuck","fucking","ass","asshole"]
+BAN_WORDS = ["cheese","fuck","fucking","ass","asshole"]

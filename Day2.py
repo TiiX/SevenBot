@@ -12,6 +12,8 @@ token = tk.token_id
 
 client = discord.Client()
 
+
+
 @client.event
 async def on_ready():
     print("Seven Loaded.")
@@ -33,15 +35,20 @@ async def on_message(message):
                            timestamp=message.created_at)
         em.add_field(name="Un Field", value="Ton value", inline=True)
         await message.channel.send(embed=em)
+
     if message.author != client.user:
         for word in b_w.BAN_WORDS:
             if word in message.content.lower():
                 print("WARNING : Ban Word Detected.")
                 await message.delete()
                 await message.author.send("Ban Word Detected. => "+word+" <=\nThe Previous Message :\n"+message.content)
+
     if message.content.startswith("!play"):
         music_client = await CobraMusic.get_client(message, client)
         await music_client.play(message.content.split()[1])
 
-
-client.run(token)
+    if message.content.startswith("!stop"):
+        music_client = await CobraMusic.get_client(message, client)
+        await music_client.disconnect()
+    
+client.run("NjkzMTE4NTI0NjU4NDE3NzU1.XodQ5Q.2rgQ9rnqAQVLVZyYgiUiYF7Dqhs")
